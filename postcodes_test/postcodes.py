@@ -58,4 +58,5 @@ class PostcodeChecker:
             print("Invalid input!")
             return 
 
+        
 checker = PostcodeChecker()
