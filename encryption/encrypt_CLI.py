@@ -3,7 +3,7 @@ from cmd import Cmd
 
 class Prompt(Cmd):
     def do_encrypt(self, inp):
-        """Prompts for the text for encryption."""
+        """Prompts for the text for encryption. Simply enter the text that you'd like to encrypt."""
         text = input("Enter the text that you want to encrypt:")
         bytes_text = text.encode('ascii')  # base64 accepts bytes-like data, so we convert string to bytes
         encrypted_text = base64.b64encode(bytes_text)  # base64 encrypts the data
@@ -12,7 +12,7 @@ class Prompt(Cmd):
         return
 
     def do_decrypt(self, inp):
-        """Prompts for the text for decryption."""
+        """Prompts for the text for decryption. Simply enter the text that you'd like to decrypt."""
         text = input("Enter the text that you want to decrypt:")
         bytes_text = text.encode('ascii')
         decrypted_text = base64.b64decode(bytes_text)
@@ -25,10 +25,5 @@ class Prompt(Cmd):
         print("Thanks for using the shell. Bye!")
         return True  # Returns true so that Cmd.postcmd() hook method can terminate the execution.
 
-    def newkeys(keysize):
-       random_generator = Random.new().read
-       key = RSA.generate(keysize, random_generator)
-       private, public = key, key.publickey()
-       return public, private
 
 Prompt().cmdloop()
