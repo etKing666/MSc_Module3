@@ -1,7 +1,5 @@
 import base64
 from cryptography.fernet import Fernet
-from Crypto.Cipher import AES
-from Crypto.Random import get_random_bytes
 from cmd import Cmd
 from time import sleep
 
@@ -85,7 +83,7 @@ Remember to store it in a safe place! You will need this key to decrypt your mes
         f = Fernet(key)
         token = f.encrypt(text.encode("ascii"))
         print(f"""Here is the cipher text: {token.decode()}
-        If you want to decrypt it later, you will need the cipher text and the key. 
+If you want to decrypt it later, you will need the cipher text and the key. 
         """)
 
     def do_decrypt(self, inp):
@@ -106,14 +104,14 @@ Here is the your decrypted message: {message.decode()}
 
 def main():
     print("""
-    ===================================
-    Encryption/Decryption Suite
-    ===================================
-    Commands:
-    base64 - Encrypt or decrypt a message using base64 algorithm
-    fernet - Encrypt or decrypt a message using fernet algorithm
-    help - Get help and review the documentation of a command
-    exit - Exits the program
+===================================
+Encryption/Decryption Suite
+===================================
+Commands:
+base64 - Encrypt or decrypt a message using base64 algorithm
+fernet - Encrypt or decrypt a message using fernet algorithm
+help - Get help and review the documentation of a command
+exit - Exits the program
             """)
 
 main()
