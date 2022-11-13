@@ -2,7 +2,7 @@ import base64
 from cmd import Cmd
 
 class Prompt(Cmd):
-    def do_encrypt(self, inp):
+    def do_base64(self, inp):
         """Prompts for the text for encryption. Simply enter the text that you'd like to encrypt."""
         text = input("Enter the text that you want to encrypt:")
         bytes_text = text.encode('ascii')  # base64 accepts bytes-like data, so we convert string to bytes
